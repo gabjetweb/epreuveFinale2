@@ -22,12 +22,12 @@ app.get('/etape2', function (req, res) {
 		});
 })
 
-app.get('/etape3', function (req, res) {
+app.get('/etape2', function (req, res) {
  	fs.readFile('public/text/collection_provinces.json', 'utf-8', function (err, data) {
 		if (err) return console.error(err);
 			obj = JSON.parse(data)
 			console.log(obj);
-		  	res.render('index.ejs', {provinces.nom: obj});
+		  	res.render('index.ejs', {provinces: obj});
 		});
 })
 
