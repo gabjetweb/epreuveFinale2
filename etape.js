@@ -1,8 +1,13 @@
-var http = require("http");
-var ejs = require('ejs');
-var express = require('express');
-var app = express();
-var fs = require("fs");
+const fs = require("fs");
+const express = require('express');
+const bodyParser= require('body-parser')
+const MongoClient = require('mongodb').MongoClient
+const ObjectID = require('mongodb').ObjectID;
+const app = express();
+app.set('view engine', 'ejs'); // générateur de template 
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static('public'))  // pour utiliser le dossier public
+app.use(bodyParser.json())  // pour traiter les données JSON
 
 app.get('/etape1', function (req, res) {
  		fs.readFile('public/text/collection_provinces.json', 'utf-8', function (err, data) {
