@@ -13,8 +13,8 @@
   	  	<h2>Node.js, Express, MongoDB, EJS</h2>
   	  	<nav>
 
-  	  		<a href="http://localhost:8081">1-Fichier</a>
-  	  		<a href="#">2-Provinces</a>
+  	  		<a href="/">1-Fichier</a>
+  	  		<a href="/etape2">2-Provinces</a>
   	  		<a href="#">3-Collection</a>
   	  		<a href="#">4-Ajouter un document</a>
   	  		<a href="#">5-Détruire</a>
@@ -23,7 +23,19 @@
   	  </header>
   	  <main>
 		  <table class="tableau">
-      <script type="text/javascript" src="../etape2.js"></script>
+      <% for(var i=0; i<provinces.length; i++) {%>
+          <tr>
+            <td>
+              <span><%= provinces[i].code %></span>
+            </td>
+            <td>
+              <span><%= provinces[i].nom %></span>
+            </td>
+            <td>
+              <span><%= provinces[i].capital %></span>
+            </td>
+          </tr>
+          <% } %>
 		  </table>
 	  </main>
 	  <footer>
