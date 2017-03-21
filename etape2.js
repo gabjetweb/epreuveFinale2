@@ -22,6 +22,15 @@ app.get('/etape2', function (req, res) {
 		});
 })
 
+app.get('/etape3', function (req, res) {
+ 	fs.readFile('public/text/collection_provinces.json', 'utf-8', function (err, data) {
+		if (err) return console.error(err);
+			obj = JSON.parse(data)
+			console.log(obj);
+		  	res.render('index.ejs', {provinces.nom: obj});
+		});
+})
+
 var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
