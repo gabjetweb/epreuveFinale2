@@ -20,13 +20,20 @@ ch += '</table>'
 return ch;
 }
 
-app.get('/', function (req, res) {
+app.get('/fichier', function (req, res) {
+ 		fs.readFile('public/text/collection_provinces.json', 'utf-8', function (err, data) {
+		if (err) return console.error(err);
+		  res.end(data);
+		});
+})
+
+app.get('/province', function (req, res) {
  		fs.readFile('public/text/collection_provinces.json', 'utf-8', function (err, data) {
 		if (err) return console.error(err);
 		obj = JSON.parse(data)
 		  res.writeHead(200, {"Content-Type": "text/html"});
 		  res.write(affiche_objet(obj));
-		  res.end();
+		    res.render('index.ejs', {adresse: resultat})
 		});
 })
 
