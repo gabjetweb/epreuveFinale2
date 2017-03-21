@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
 		if (err) return console.error(err);
 		obj = JSON.parse(data)
 		  res.writeHead(200, {"Content-Type": "text/html"});
-		  res.write(data)
+		  res.write(affiche_objet(obj));
 		  res.end();
 		});
 })
